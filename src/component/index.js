@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, PageHeader, Table, Modal, Popconfirm } from 'antd'
+import { Button, PageHeader, Table, Modal, Popconfirm, message } from 'antd'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import {  } from '../common/studentDataTable'
 import AddUpdateStudent from "./addUpdateStudent"
 const StudentTable = () => {
     const [studentData, setStudentData] = useState(null)
@@ -25,9 +24,15 @@ const StudentTable = () => {
             method: 'GET',
         });
         const responseData = await response.json();
-        setLoading(false)
-        setStudentData(responseData)
-        return responseData
+        if(!response.ok){
+            setLoading(false)
+            message.error("something went wrong")
+            return 
+        }else{
+            setLoading(false)
+            setStudentData(responseData)
+            return responseData || []
+        }
     }
 
     const onCancel = () => {
