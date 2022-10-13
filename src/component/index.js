@@ -117,6 +117,7 @@ const StudentTable = () => {
     ];
     return (
         <div style={{margin:'10px'}}>
+            {/* Header component */}
             <PageHeader title={`Student Data`} extra={[
                 <Button
                     onClick={() => setIsStudentFromVisible(true)}
@@ -124,11 +125,14 @@ const StudentTable = () => {
                     Add Student
                 </Button>
             ]} />
+
+            {/* table to show student data */}
             <Table
                 columns={columns}
                 dataSource={studentData}
                 loading={loading}
             />
+            {/* pop up modal to add and upadte student data */}
             <Modal
                 visible={isStudentFromVisible}
                 title={forms[formType].title}

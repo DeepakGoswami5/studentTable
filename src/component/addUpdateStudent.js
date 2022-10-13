@@ -27,6 +27,7 @@ const AddUpdateStudent = (selectedRow) => {
     }
     return (
         <div>
+            {/* form component to collect student details */}
             <Form
                 onFinish={handleSubmit}
             >
@@ -59,6 +60,7 @@ const AddUpdateStudent = (selectedRow) => {
                     <Input />
                 </Form.Item>
 
+                {/* submit button on completing the form */}
                 <Form.Item
                 >
                     <Button htmlType="submit">Submit</Button>
